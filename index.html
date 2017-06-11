@@ -48,10 +48,11 @@
 	// Event listener for our cat-button
     $("#gif-button").on("click", function() {
 
-    	 var searchTerm = $("#search").val()
+    	var searchTerm = $("#search").val()
+    	var gifNum = 20;
 
     	// Storing our giphy API URL for a random cat image
-    	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=dc6zaTOxFJmzC&limit=20";
+    	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=dc6zaTOxFJmzC&limit=" + gifNum;
 
     	// Perfoming an AJAX GET request to our queryURL
     	$.ajax({
@@ -62,20 +63,18 @@
     	// After the data from the AJAX request comes back
     	.done(function(response) {
 
-    		console.log(response);
+    		for (var i = 0; i < gifNum; i++) {
 
-    		// Saving the image_original_url property
-    		var imageUrl = response.data[0].images.original.url;
+	    		var imageUrl = response.data[i].images.original.url;
+	    		var reactGif = $("<img>");
 
-	    	// Creating and storing an image tag
-    		var reactGif = $("<img>");
+	    		reactGif.attr("src", imageUrl);
+	    		reactGif.attr("alt", "reaction gif");
+	    		reactGif.attr("id", "react-gif")
 
-    		// Setting the catImage src attribute to imageUrl
-    		reactGif.attr("src", imageUrl);
-    		reactGif.attr("alt", "reaction gif");
+	    		$(".gifContainer").prepend(reactGif);
 
-    		// Prepending the catImage to the images div
-    		$(".gifContainer").prepend(reactGif);
+    		}
     	});
 	});
 
