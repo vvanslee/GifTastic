@@ -47,7 +47,7 @@
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script type="text/javascript">
 
-	var tags = ["huh", "what", "u mad", "disgusted", "happy", "sad", "dont even", "betta stop", "gurl", "hell naw", "you right", "thank you", "please", "nope", "thug life", "why"];
+	var tags = ["i cant even", "huh", "what", "u mad", "disgusted", "happy", "sad", "dont even", "betta stop", "eye roll", "gurl", "hell no", "you right", "thank you", "please", "nope", "thug life", "why"];
 	var gifNum = 20;
 
 			for (var i = 0; i < tags.length; i++) {
@@ -65,7 +65,9 @@
 			$("#tagbutton").on("click", function() {
 				event.preventDefault();
 
-				var tagUrl = "https://api.giphy.com/v1/gifs/search?q=" + $(this).attr("value") + "&api_key=dc6zaTOxFJmzC&limit=" + gifNum;
+				var tagTerm = $(this).attr("value")
+
+				var tagUrl = "https://api.giphy.com/v1/gifs/search?q=" + tagTerm + "&api_key=dc6zaTOxFJmzC&limit=" + gifNum;
 
 				$.ajax({
 			    	url: tagUrl,
