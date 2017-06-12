@@ -41,9 +41,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script type="text/javascript">
 
@@ -63,10 +60,8 @@
 			}
 
 			$("#tagbutton").on("click", function() {
-				event.preventDefault();
 
 				var tagTerm = $(this).attr("value")
-
 				var tagUrl = "https://api.giphy.com/v1/gifs/search?q=" + tagTerm + "&api_key=dc6zaTOxFJmzC&limit=" + gifNum;
 
 				$.ajax({
@@ -90,14 +85,10 @@
 				});
 			});
 			
-
 	    $("#gif-button").on("click", function() {
 
 	    	var searchTerm = $("#search").val()
-
-	    	// generates custom url
 	    	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=dc6zaTOxFJmzC&limit=" + gifNum;
-
 	    	var gifTag = $("<button>" + searchTerm + "</button>");
 
 			gifTag.attr("type", "button");
@@ -107,7 +98,6 @@
 
 			$(".tag-container").prepend(gifTag);
 
-	    	// get data from url
 	    	$.ajax({
 	    		url: queryURL,
 	    		method: "GET"
@@ -115,25 +105,19 @@
 
 	    	.done(function(response) {
 
-	    		// loop to append n images
 	    		for (var k = 0; k < gifNum; k++) {
 
 		    		var imageUrl = response.data[k].images.original.url;
 		    		var reactGif = $("<img>");
 
-		    		// set attributes to <img>
 		    		reactGif.attr("src", imageUrl);
 		    		reactGif.attr("alt", "reaction gif");
 		    		reactGif.attr("id", "react-gif");
 
-		    		// appends <img> to gifContainer <div>
 		    		$(".gifContainer").prepend(reactGif);
-
 	    		}
 	    	});
 		});
-
 </script>
-
 </body>
 </html>
