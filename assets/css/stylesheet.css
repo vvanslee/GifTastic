@@ -1,7 +1,24 @@
+body {
+	background-color: #56585b;
+}
+
 img {
 	object-fit: cover;
 	width: 400px;
 	height: 250px;
 	margin-right: 20px;
 	margin-bottom: 20px;
+}
+
+.jumbotron {
+	font-size: 40px;
+	font-family: 'Rajdhani', sans-serif;
+	background-color: black;
+	color: #56585b;
+}
+
+#tagbutton {
+	border-radius: 100px;
+	padding: 5px;
+	font-family: 'Assistant', sans-serif;
 }
