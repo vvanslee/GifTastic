@@ -95,6 +95,15 @@
 	    	// generates custom url
 	    	var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=dc6zaTOxFJmzC&limit=" + gifNum;
 
+	    	var gifTag = $("<button>" + searchTerm + "</button>");
+
+			gifTag.attr("type", "button");
+			gifTag.attr("class", "btn btn-default");
+			gifTag.attr("id", "tagbutton");
+			gifTag.attr("value", searchTerm);
+
+			$(".tag-container").prepend(gifTag);
+
 	    	// get data from url
 	    	$.ajax({
 	    		url: queryURL,

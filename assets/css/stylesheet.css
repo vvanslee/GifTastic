@@ -11,14 +11,20 @@ img {
 }
 
 .jumbotron {
-	font-size: 40px;
+	font-size: 60px;
 	font-family: 'Rajdhani', sans-serif;
 	background-color: black;
-	color: #56585b;
+	color: #cfcfd1;
 }
 
 #tagbutton {
 	border-radius: 100px;
 	padding: 5px;
+	margin: 2px;
 	font-family: 'Assistant', sans-serif;
+	background-color: #cfcfd1;
+}
+
+#tagbutton:hover {
+	background-color: white;
 }
